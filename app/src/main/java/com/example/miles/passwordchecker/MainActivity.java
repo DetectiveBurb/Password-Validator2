@@ -26,12 +26,27 @@ public class MainActivity extends AppCompatActivity {
                 boolean strength=true;
                 x = pass.getText().toString();
 
+                //checking the password is not "password"
                 if (x.equals("password"))
                     strength=false;
 
+                //checking the password is long enough
                 if (x.length()<9)
                     strength=false;
 
+                //checking password has a number
+                if(!x.matches("0-9"))
+                    strength=false;
+
+                //checking for at least one uppercase letter
+                if(!x.matches("A-Z"))
+                    strength=false;
+
+                //checking for at least one lowercase letter
+                if(!x.matches("a-z"))
+                    strength=false;
+
+                //displaying results of test
                 if (strength==true){
                     Toast.makeText(getApplicationContext(),"password is strong enough",Toast.LENGTH_SHORT).show();
                 }
